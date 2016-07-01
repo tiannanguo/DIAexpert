@@ -54,7 +54,7 @@ def further_refine_if_ms1_peak_for_reference_sample(peak_group_candidates, tg, r
             rt_right = display_data[tg][reference_sample]['rt_right']
             ms1_rt_list_in_range, ms1_i_list_in_range = get_chrom_range(rt_left, rt_right, ms1_rt_list, ms1_i_list)
 
-            peak_group_candidates[tg][reference_sample][rt].if_ms1_peak = swath_quant.check_if_displayed_peak_a_good_one_ms1(ms1_rt_list, ms1_i_list, 1, 3)
+            peak_group_candidates[tg][reference_sample][rt].if_ms1_peak = dia_quant.check_if_displayed_peak_a_good_one_ms1(ms1_rt_list, ms1_i_list, 1, 3)
 
     return peak_group_candidates
 
@@ -67,7 +67,7 @@ def further_refine_ref_sample_fragments(display_data, peak_group_candidates, tg,
     for fragment in display_data[tg][reference_sample]['ms2']['rt_list'].keys():
         this_rt_list = display_data[tg][reference_sample]['ms2']['rt_list'][fragment]
         this_i_list = display_data[tg][reference_sample]['ms2']['i_list'][fragment]
-        if_good_fragment = swath_quant.check_if_displayed_peak_a_good_one(this_rt_list, this_i_list, 1, 3)
+        if_good_fragment = dia_quant.check_if_displayed_peak_a_good_one(this_rt_list, this_i_list, 1, 3)
 
         if if_good_fragment == 0:
 

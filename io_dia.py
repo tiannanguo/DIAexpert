@@ -56,7 +56,7 @@ def read_com_chrom_file(chrom_file, sample_id, normalization_factors):
         next(r)
 
         # get the best sample for each tg
-        best_sample, best_score, best_rt = get_best_sample_for_each_tg(r, tg_list)
+        best_sample, best_score, best_rt = get_best_sample_for_each_tg(i, r, tg_list)
 
         # re-iterate the chrom file
         i.seek(0)
@@ -152,7 +152,7 @@ def get_percentage_of_non_NA_values(row):
     return perc
 
 
-def get_best_sample_for_each_tg(reader, tg_list):
+def get_best_sample_for_each_tg(i, reader, tg_list):
 
     best_sample = {}
     best_score = {}
@@ -169,11 +169,10 @@ def get_best_sample_for_each_tg(reader, tg_list):
                 best_sample[tg] = row['best_sample']
                 best_rt[tg] = row['best_rt']
                 best_score[tg] = float(row['best_score'])
+        i.seek(0)
+        next(reader)
 
     return best_sample, best_score, best_rt
-
-
-
 
 def read_tic_normalization_file(tic_normalization_file):
 

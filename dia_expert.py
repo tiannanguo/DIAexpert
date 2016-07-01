@@ -31,8 +31,9 @@ def print_help():
 # tic_normalization_file = sys.argv[3]  #eg, 'gold90.tic'
 
 chrom_file = 'com_chrom_32test2.txt.gz'
-id_mapping_file = "sample_information.txt"
+id_mapping_file = "nci60_sample_information.txt"
 tic_normalization_file = "nci60.tic"
+out_R_file = "com_chrom_32test2.R"
 
 
 def remove_all_file_extensions(path):

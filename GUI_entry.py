@@ -6,6 +6,9 @@ import GUI
 
 def main():
 
+    global if_select_all_samples
+    if_select_all_samples = 1
+
     root = Tk()
     root.config(background="white")
     # root.resizable(width=False, height=False)
@@ -42,6 +45,14 @@ def main():
     GUI.show_button(root, "readme", GUI.pepID_readme, row_number, 7)
     GUI.show_button(root, "browse", GUI.pepID_browse, row_number, 8)
     GUI.show_button(root, "show", GUI.pepID_show, row_number, 9)
+
+    row_number += 1
+
+    # save file names
+    GUI.show_label(root, "save files names:", row_number, 1)
+    GUI.show_button(root, "readme", GUI.chrom_readme, row_number, 2)
+    GUI.show_button(root, "save", GUI.chrom_browse, row_number, 3)
+    GUI.show_button(root, "open", GUI.chrom_show, row_number, 4)
 
     row_number += 1
 
@@ -101,12 +112,31 @@ def main():
 
     row_number += 1
 
-    # output file
+    # output file good
     GUI.show_label(root, "output good:", row_number, 1)
     GUI.show_button(root, "readme", GUI.peakRT_readme, row_number, 2) ##############re-write func
+    GUI.show_button(root, "directory", GUI.peakRT_readme, row_number, 3)  ##############re-write func
     e_output_good = Entry(root, bg="white", fg="black", width=20)
     e_output_good.insert(0, "output_good_tg.txt")
-    e_output_good.grid(row=row_number, column=3, padx=2, pady=2, sticky=W, columnspan=5)
+    e_output_good.grid(row=row_number, column=4, padx=2, pady=2, sticky=W, columnspan=5)
+
+    row_number += 1
+
+    # output file poor
+    GUI.show_label(root, "output poor:", row_number, 1)
+    GUI.show_button(root, "readme", GUI.peakRT_readme, row_number, 2)  ##############re-write func
+    GUI.show_button(root, "directory", GUI.peakRT_readme, row_number, 3)  ##############re-write func
+    e_output_good = Entry(root, bg="white", fg="black", width=20)
+    e_output_good.insert(0, "output_poor_tg.txt")
+    e_output_good.grid(row=row_number, column=4, padx=2, pady=2, sticky=W, columnspan=5)
+
+    row_number += 1
+
+    # save parameters
+    GUI.show_label(root, "save parameters:", row_number, 1)
+    GUI.show_button(root, "readme", GUI.chrom_readme, row_number, 2)
+    GUI.show_button(root, "save", GUI.chrom_browse, row_number, 3)
+    GUI.show_button(root, "open", GUI.chrom_show, row_number, 4)
 
     row_number += 1
 
@@ -126,13 +156,14 @@ def main():
 
     GUI.show_label(root, "peptide:", row_number, 1)
     GUI.show_button(root, "readme", GUI.norm_readme, row_number, 2)  ##############re-write func
-    GUI.show_button(root, "browse", GUI.norm_browse, row_number, 3)  ##############re-write func
+    GUI.show_button(root, "select", GUI.norm_browse, row_number, 3)  ##############re-write func
     GUI.show_button(root, "show", GUI.norm_show, row_number, 4)  ##############re-write func
 
     GUI.show_label(root, "samples:", row_number, 6)
     GUI.show_button(root, "readme", GUI.norm_readme, row_number, 7)  ##############re-write func
-    GUI.show_button(root, "browse", GUI.norm_browse, row_number, 8)  ##############re-write func
-    GUI.show_button(root, "show", GUI.norm_show, row_number, 9)  ##############re-write func
+    c_all_samples = Checkbutton(root, text="all", variable=if_select_all_samples).grid(row=row_number, column=8, padx=2, pady=2)
+    GUI.show_button(root, "select", GUI.norm_browse, row_number, 9)  ##############re-write func
+    GUI.show_button(root, "show", GUI.norm_show, row_number, 10)  ##############re-write func
 
     row_number += 1
 
@@ -140,6 +171,20 @@ def main():
     GUI.show_label(root, "RT range:", row_number, 1)
     GUI.show_button(root, "readme", GUI.peakRT_readme, row_number, 2) ##############re-write func
     e_view_rt_range = GUI.show_entry(root, 6, row_number, 3)
+
+    row_number += 1
+
+    Button(root, text="Click to View Results on the fly", command=GUI.peakRT_readme).grid(row=row_number, column=1,
+                                                                                        padx=2, pady=2,
+                                                                                        columnspan=3)  ##############re-write func
+
+    Button(root, text="Click to Save all plots as png", command=GUI.peakRT_readme).grid(row=row_number, column=5,
+                                                                                          padx=2, pady=2,
+                                                                                          columnspan=3)  ##############re-write func
+
+    Button(root, text="Click to Save all plots as pdf", command=GUI.peakRT_readme).grid(row=row_number, column=8,
+                                                                                        padx=2, pady=2,
+                                                                                        columnspan=3)  ##############re-write func
 
     root.mainloop()
 

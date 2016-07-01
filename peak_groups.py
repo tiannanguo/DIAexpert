@@ -401,7 +401,7 @@ def check_if_the_top1_fragment_is_good_in_ref_sample(pg, ref_pg):
     top1_rt_list_in_range, top1_i_list_in_range = \
         chrom.get_chrom_range(ref_pg_rt_left, ref_pg_rt_right, top1_rt_list, top1_i_list)
 
-    if_ref_good = swath_quant.check_if_displayed_peak_a_good_one(top1_rt_list, top1_i_list, 1, 3)
+    if_ref_good = dia_quant.check_if_displayed_peak_a_good_one(top1_rt_list, top1_i_list, 1, 3)
 
     return if_ref_good
 
@@ -421,7 +421,7 @@ def check_if_top1_fragment_good_in_this_pg(pg, ref_pg, if_top1_fragment_good_in_
         pg_rt_left, pg_rt_right = get_boundary_for_pg_best(pg, rt, ref_pg_width)
         top1_rt_list_in_range, top1_i_list_in_range = \
             chrom.get_chrom_range(pg_rt_left, pg_rt_right, top1_rt_list, top1_i_list)
-        if_top1_fragment_good_in_this_pg = swath_quant.check_if_displayed_peak_a_good_one(
+        if_top1_fragment_good_in_this_pg = dia_quant.check_if_displayed_peak_a_good_one(
             top1_rt_list, top1_i_list, 1, 3)
 
     return if_top1_fragment_good_in_this_pg
@@ -1380,6 +1380,9 @@ def refine_peak_forming_fragments_based_on_reference_sample(ref_sample_data, chr
     # for each tg, find the peak_forming fragments in the reference sample
 
     for tg in chrom_data.keys():
+
+        if tg == "10703_DAGEGGLSLAIEGPSKAEISC(UniMod:4)TDNQDGTC(UniMod:4)SVSYLPVLPGDYSILVK_4":
+            print "test", tg
 
         ref_sample = ref_sample_data[tg].sample_name
 

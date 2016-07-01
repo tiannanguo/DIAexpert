@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42387733-1e3d-438d-ba79-39906f918373" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample_information.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI.py" afterPath="$PROJECT_DIR$/GUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI_entry.py" afterPath="$PROJECT_DIR$/GUI_entry.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chrom.py" afterPath="$PROJECT_DIR$/chrom.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dia_expert.py" afterPath="$PROJECT_DIR$/dia_expert.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/io_dia.py" afterPath="$PROJECT_DIR$/io_dia.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peak_groups.py" afterPath="$PROJECT_DIR$/peak_groups.py" />
     </list>
     <ignored path="2_DIAexpertCodes.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dia_expert.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dia_expert.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dia_expert.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3804878">
+              <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
               <folding>
                 <element signature="e#211#220#0" expanded="true" />
               </folding>
@@ -51,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GUI_entry.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GUI_entry.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI_entry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.534413">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="250" column="0" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -67,10 +63,8 @@
         <entry file="file://$PROJECT_DIR$/_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,7 +92,7 @@
       <file leaf-file-name="chrom.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chrom.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.265306">
+            <state vertical-scroll-proportion="0.0">
               <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
               <folding>
                 <element signature="e#22#39#0" expanded="true" />
@@ -110,7 +104,7 @@
       <file leaf-file-name="peak_groups.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/peak_groups.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.102041">
+            <state vertical-scroll-proportion="0.0">
               <caret line="415" column="9" selection-start-line="415" selection-start-column="9" selection-end-line="415" selection-end-column="9" />
               <folding>
                 <element signature="e#21#33#0" expanded="true" />
@@ -123,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/plot.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -133,10 +127,8 @@
         <entry file="file://$PROJECT_DIR$/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-              <folding>
-                <element signature="e#44#65#0" expanded="true" />
-              </folding>
+              <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,6 +143,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Tiannan Guo" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="PUSH_TAGS">
       <GitPushTagMode />
@@ -162,20 +159,20 @@
         <option value="$PROJECT_DIR$/plot.py" />
         <option value="$PROJECT_DIR$/io_swath.py" />
         <option value="$PROJECT_DIR$/_test.py" />
-        <option value="$PROJECT_DIR$/GUI.py" />
-        <option value="$PROJECT_DIR$/GUI_entry.py" />
         <option value="$PROJECT_DIR$/io_dia.py" />
         <option value="$PROJECT_DIR$/chrom.py" />
         <option value="$PROJECT_DIR$/peak_groups.py" />
         <option value="$PROJECT_DIR$/dia_expert.py" />
+        <option value="$PROJECT_DIR$/GUI_entry.py" />
+        <option value="$PROJECT_DIR$/GUI.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1122" />
+    <option name="width" value="1296" />
+    <option name="height" value="958" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -446,9 +443,9 @@
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.dia_expert" />
         <item index="1" class="java.lang.String" itemvalue="Python.GUI_entry" />
-        <item index="2" class="java.lang.String" itemvalue="Python._test" />
-        <item index="3" class="java.lang.String" itemvalue="Python.setup" />
-        <item index="4" class="java.lang.String" itemvalue="Python.plot" />
+        <item index="2" class="java.lang.String" itemvalue="Python.plot" />
+        <item index="3" class="java.lang.String" itemvalue="Python._test" />
+        <item index="4" class="java.lang.String" itemvalue="Python.setup" />
       </list>
     </recent_temporary>
   </component>
@@ -469,11 +466,17 @@
       <option name="project" value="LOCAL" />
       <updated>1467318751595</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="re designed the GUI. add three parts. debug dia-expert IO">
+      <created>1467372245712</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1467372245712</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1122" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="958" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20119224" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -481,7 +484,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22837022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22771084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -528,7 +531,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="re designed the GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="re designed the GUI" />
+    <MESSAGE value="re designed the GUI. add three parts. debug dia-expert IO" />
+    <option name="LAST_COMMIT_MESSAGE" value="re designed the GUI. add three parts. debug dia-expert IO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -553,6 +557,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/chrom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+          <folding>
+            <element signature="e#22#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peak_groups.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="415" column="9" selection-start-line="415" selection-start-column="9" selection-end-line="415" selection-end-column="9" />
+          <folding>
+            <element signature="e#21#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dia_expert.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -577,9 +617,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -631,9 +669,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding>
-            <element signature="e#44#65#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -661,9 +697,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -715,9 +749,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="119" selection-start-line="9" selection-start-column="119" selection-end-line="9" selection-end-column="119" />
-          <folding>
-            <element signature="e#44#65#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -745,9 +777,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -819,9 +849,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -888,16 +916,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18650089">
           <caret line="5" column="35" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -905,24 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.41502684">
           <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding>
-            <element signature="e#44#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,7 +937,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chrom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.265306">
+        <state vertical-scroll-proportion="0.0">
           <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
           <folding>
             <element signature="e#22#39#0" expanded="true" />
@@ -946,7 +947,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/peak_groups.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.102041">
+        <state vertical-scroll-proportion="0.0">
           <caret line="415" column="9" selection-start-line="415" selection-start-column="9" selection-end-line="415" selection-end-column="9" />
           <folding>
             <element signature="e#21#33#0" expanded="true" />
@@ -962,22 +963,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dia_expert.py">
+    <entry file="file://$PROJECT_DIR$/_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#211#220#0" expanded="true" />
-          </folding>
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI_entry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.534413">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="250" column="0" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dia_expert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3804878">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding>
+            <element signature="e#211#220#0" expanded="true" />
           </folding>
         </state>
       </provider>

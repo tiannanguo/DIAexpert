@@ -1,8 +1,12 @@
 __author__ = 'Tiannan Guo, ETH Zurich 2016'
 from Tkinter import *
-from tkFileDialog import askopenfilenames, askopenfilename
+from tkFileDialog import askopenfilenames, askopenfilename, askdirectory
 from tkintertable import TableCanvas, TableModel
-import tkFont
+
+
+
+
+
 
 
 def show_label_title(root, label_text, row_number, column_num):
@@ -105,8 +109,10 @@ def binRT_readme():
     Button(win, text="close", command=win.destroy).pack()
 
 
-
-
+def select_output_good_dir():
+    global output_good_dir
+    dir = askdirectory()
+    output_good_dir = dir
 
 def run_expert():
 

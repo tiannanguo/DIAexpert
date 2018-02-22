@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 #tiannan,2015,IMSB,ETH
 use Cwd;
+use File::Slurp;
 
 $in=shift; #"feature_alignment_requant_matrix.tsv";
 $in2=shift; #"140306PC-DDA-92files_step4.tsv";
@@ -14,6 +15,13 @@ foreach my $d(@d){
           if ($dd[0]=~/^(\d+_.*)\_run\d/){
                $tg{$1}=1;
           }
+          elsif ($dd[0]=~/^\d+\_(.*\_\d+)$/){
+               $tg{$1}=1;
+          }
+          elsif ($dd[0]=~/^\d+\_(.*)$/){
+               $tg{$1}=1;
+               #print "$1\n";
+          }
 }
 
 @d2=&oF($in2);
@@ -22,8 +30,17 @@ open(OUT,">$o");
 print OUT "$title2\n";
 foreach my $d(@d2){
           my @dd=&s($d);
-          if ($tg{$dd[6]}){
+          $dd[6]=~/^\d+\_(.*)$/;
+          my $pep_z=$1;
+
+          if ($tg{$dd[6]} or $tg{$pep_z}){
                print OUT "$d\n";
+          }
+          else{
+              $pep_z=~/(.*)\_\d+$/;
+              if ($tg{$1}){
+                  print OUT "$d\n"
+              }
           }
 }
 close OUT;
@@ -45,4 +62,3 @@ sub s{
     my @c=split(/$b/,$a);
     return @c;
 }
-

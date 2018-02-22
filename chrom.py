@@ -5,44 +5,6 @@ import parameters
 import data_holder
 import swath_quant
 
-#at 2018.1
-#new version of this function
-def compute_reference_sample_peak_boundary_v1(ref_sample_data,chrom_data, tg,sample, peak_group_candidates,display_data):
-    print tg, "compute_reference_sample_peak_boundary"
-
-    reference_sample = sample
-    peak_rt_found = ref_sample_data[tg].peak_rt_found
-
-    # get the peak boundary for the reference sample
-    fragments = peak_group_candidates[tg][reference_sample][peak_rt_found].matched_fragments
-    i = peak_group_candidates[tg][reference_sample][peak_rt_found].matched_fragments_i
-    rt_left_list = peak_group_candidates[tg][reference_sample][peak_rt_found].matched_fragments_peak_rt_left
-    rt_right_list = peak_group_candidates[tg][reference_sample][peak_rt_found].matched_fragments_peak_rt_right
-
-    ref_sample_rt_left, ref_sample_rt_right = get_peak_group_boundary(fragments, i, rt_left_list, rt_right_list, peak_rt_found)
-
-    # if the ref sample peak is too narrow, < 30 sec, extend 5 sec at both ends
-    if ref_sample_rt_right - ref_sample_rt_left < 30:
-        ref_sample_rt_left -= 3
-        ref_sample_rt_right += 3
-
-    ref_sample_data[tg].read_peak_boundary(ref_sample_rt_left, ref_sample_rt_right)
-
-    # store the chrom to be displayed for the reference sample
-    display_data[tg][reference_sample]['rt_left'] = ref_sample_rt_left
-    display_data[tg][reference_sample]['rt_right'] = ref_sample_rt_right
-
-    # use the range to narrow MS1 and fragment rt range
-    display_data = refine_reference_sample_rt_range(display_data, chrom_data, tg, reference_sample, peak_rt_found)
-
-    display_data, peak_group_candidates, chrom_data = further_refine_ref_sample_fragments(display_data, peak_group_candidates, tg, reference_sample, chrom_data)
-
-    # further check if_ms1_peak
-    peak_group_candidates = further_refine_if_ms1_peak_for_reference_sample(peak_group_candidates, tg, reference_sample, chrom_data, display_data)
-
-    return display_data, peak_group_candidates, chrom_data
-
-
 
 def compute_reference_sample_peak_boundary(ref_sample_data, chrom_data, peptide_data, peak_group_candidates):
 
@@ -220,7 +182,6 @@ def get_peak_group_boundary(fragments, i, rt_left_list, rt_right_list, peak_rt_f
         pg_rt_left = rt_left_list2[0]
         pg_rt_right = rt_right_list2[0]
     else:
-        #2018.1, is this a bug?
         pg_rt_left += 3
         pg_rt_right += 3
 

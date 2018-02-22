@@ -3,83 +3,30 @@ __author__ = 'Tiannan Guo, ETH Zurich 2015'
 import csv
 import numpy as np
 import operator
-import data_holder
+
 
 def median(lst):
     return np.median(np.array(lst))
 
-#at 2018.2, optimized this function by a variable but not to read from file
-def computer_other_sample_area_ratio_median_after_removing_bad_shaped_fragment_v1(fragment_area_data, tg, sample, display_data):
-    ratio_list = []
-    for fragment_id in fragment_area_data[tg].keys():
-        rt_list = display_data[tg][sample]['ms2']['rt_list'][fragment_id]
-        i_list = display_data[tg][sample]['ms2']['i_list'][fragment_id]
-        if_good_shape_fragment = check_if_displayed_peak_a_good_one(rt_list, i_list, 1, 1.5)
-        if if_good_shape_fragment == 1:
-            this_ratio = fragment_area_data[tg][fragment_id][sample + '_ratio_to_ref']
-            if this_ratio != 'NA':
-                ratio_list.append(float(this_ratio))
-    if len(ratio_list) >= 1:
-        return median(ratio_list)
+
+def computer_other_sample_area_ratio_median_after_removing_bad_shaped_fragment(i, tg, sample, display_data):
+    ratio_list = {}
+    i.seek(0)
+    r = csv.DictReader(i, delimiter="\t")
+    for row in r:
+        if row['transition_group_id'] == tg:
+            fragment_id = row['fragment_id']
+            rt_list = display_data[tg][sample]['ms2']['rt_list'][fragment_id]
+            i_list = display_data[tg][sample]['ms2']['i_list'][fragment_id]
+            if_good_shape_fragment = check_if_displayed_peak_a_good_one(rt_list, i_list, 1, 1.5)
+            if if_good_shape_fragment == 1:
+                this_ratio = row[sample + '_ratio_to_ref']
+                if this_ratio != 'NA':
+                    ratio_list[fragment_id] = float(this_ratio)
+    if len(ratio_list.values()) >= 1:
+        return median(ratio_list.values())
     else:
         return 'NA'
-
-# def computer_other_sample_area_ratio_median_after_removing_bad_shaped_fragment(i, tg, sample, display_data):
-#     ratio_list = {}
-#     i.seek(0)
-#     r = csv.DictReader(i, delimiter="\t")
-#     for row in r:
-#         if row['transition_group_id'] == tg:
-#             fragment_id = row['fragment_id']
-#             rt_list = display_data[tg][sample]['ms2']['rt_list'][fragment_id]
-#             i_list = display_data[tg][sample]['ms2']['i_list'][fragment_id]
-#             if_good_shape_fragment = check_if_displayed_peak_a_good_one(rt_list, i_list, 1, 1.5)
-#             if if_good_shape_fragment == 1:
-#                 this_ratio = row[sample + '_ratio_to_ref']
-#                 if this_ratio != 'NA':
-#                     ratio_list[fragment_id] = float(this_ratio)
-#     if len(ratio_list.values()) >= 1:
-#         return median(ratio_list.values())
-#     else:
-#         return 'NA'
-
-#at 2018.2 new version for
-def compute_peptide_intensity_based_on_median_ratio_of_fragments_v1(quant_file_peptides, fragment_area_data, sample_id, ref_sample_data, display_data):
-    # use information from quant_file_fragments to write out the quant table
-    with open(quant_file_peptides, 'wb') as o:
-        w = csv.writer(o, delimiter="\t")
-        title = write_title_for_peptide_quant_file(sample_id)
-        w.writerow(title)
-        for tg in display_data.keys():
-            ref_sample_id = ref_sample_data[tg].sample_name
-            ref_sample_all_fragments_area = get_ref_sample_all_fragments_area(
-                display_data, tg, ref_sample_id)
-            data_list = [tg]
-            for sample in sample_id:
-                # print sample
-                if sample != ref_sample_id:
-                    if sample == 'nci1':
-                        pass
-                    this_sample_i_ratio_median = \
-                        computer_other_sample_area_ratio_median_after_removing_bad_shaped_fragment_v1\
-                            (fragment_area_data, tg, sample, display_data)
-                    # this_sample_i_ratio_median = computer_other_sample_area_ratio_median_after_removing_bad_shaped_fragment(
-                    #     i, tg, sample, display_data)
-                    this_sample_i = 'NA'
-                    if this_sample_i_ratio_median != 'NA':
-
-                        this_sample_i = this_sample_i_ratio_median * ref_sample_all_fragments_area
-
-                    data_list.append(this_sample_i)
-
-                else:
-                    data_list.append(ref_sample_all_fragments_area)
-
-            data_list2 = fill_in_background_value(data_list)
-            w.writerow(data_list2)
-            # w.writerow(data_list)
-
-    return display_data
 
 
 def compute_peptide_intensity_based_on_median_ratio_of_fragments(quant_file_peptides, quant_file_fragments, sample_id, ref_sample_data, display_data):
@@ -317,17 +264,6 @@ def write_title_for_fragment_quant_file(sample_id):
 
     return title
 
-def write_title_for_ms1_quant_file(sample_id):
-
-    title = ['transition_group_id', 'ms1']
-
-    for sample in sample_id:
-        title.append(sample + '_area')
-        title.append(sample + '_ratio_to_ref')
-
-    return title
-
-
 
 def write_title_for_peptide_quant_file(sample_id):
 
@@ -339,36 +275,7 @@ def write_title_for_peptide_quant_file(sample_id):
     return title
 
 
-def compute_peak_area_for_refined_peptides_ms1(display_data, sample_id, ref_sample_data, quant_file_peptides_ms1):
-
-    with open(quant_file_peptides_ms1, 'wb') as o:
-
-        w = csv.writer(o, delimiter="\t")
-
-        title = write_title_for_ms1_quant_file(sample_id)
-        w.writerow(title)
-
-        for tg in display_data.keys():
-            data_list = []
-            data_list.append(tg)
-            data_list.append(tg)
-
-            ref_sample = ref_sample_data[tg].sample_name
-
-            ref_sample_ms1_area = display_data[tg][ref_sample]["ms1"]["area"]
-
-            for sample in sample_id:
-                this_area = display_data[tg][sample]["ms1"]["area"]
-                this_ratio = this_area / (ref_sample_ms1_area + 0.1)
-                data_list.append(this_area)
-                data_list.append(this_ratio)
-            w.writerow(data_list)
-
-    return display_data
-
-#at 2018.2, computer fragment data and write to file, an NestedDict is returned for used
 def compute_peak_area_for_refined_fragment(display_data, sample_id, ref_sample_data, quant_file_fragments):
-    fragment_area_data = data_holder.NestedDict()
 
     with open(quant_file_fragments, 'wb') as o:
 
@@ -393,20 +300,9 @@ def compute_peak_area_for_refined_fragment(display_data, sample_id, ref_sample_d
                 data_list, display_data = compute_quant_data_list_for_a_fragment(
                     fragment, tg, sample_id, ref_sample, display_data, ref_sample_peptide_i)
 
-                num = 0
-                fragment
-                for prop,value in zip(title,data_list):
-                    num = num+1
-                    if num<2:
-                        continue
-                    elif num==2:
-                        fragment = value
-                    else:
-                        fragment_area_data[tg][fragment][prop] = value
-
                 w.writerow(data_list)
 
-    return display_data,fragment_area_data
+    return display_data
 
 
 def compute_peak_group_area_for_reference_sample(fragment_list, display_data, tg, ref_sample):

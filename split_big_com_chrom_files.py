@@ -13,7 +13,7 @@ class Nested_dict(defaultdict):
 in_file = sys.argv[1]
 # in_file = 'com_chrom_31.txt.gz'
 
-num_tg_per_file = 30
+num_tg_per_file = 50
 
 def get_num_fractions(n):
 

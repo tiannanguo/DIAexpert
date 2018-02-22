@@ -1,0 +1,3 @@
+id="pppa"; lib="422dda_sp_sv_tr_addDecoy.TraML"; for i in {1..1}; do bsub -n 4 -R "rusage[mem=4000,scratch=8000]" -W 24:00 "OpenSwathWorkflow -min_upper_edge_dist 1 -mz_extraction_window 0.05 -rt_extraction_window 600 -extra_rt_extraction_window 100 -min_rsq 0.8 -min_coverage 0.7 -use_ms1_traces -Scoring:stop_report_after_feature 5 -tr_irt /nfs/nas21.ethz.ch/nas/fs2102/biol_ibt_usr_s1/guot/swlib/iRT_library.TraML -tr /nfs/nas21.ethz.ch/nas/fs2102/biol_ibt_usr_s1/guot/swlib/$lib -threads 8 -readOptions cache -tempDirectory \${TMPDIR}/ -in ../1_mzxml/$id${i}.mzXML.gz -out_tsv $id${i}_allFrag.tsv"; done
+
+

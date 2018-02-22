@@ -40,7 +40,7 @@ INPUT: test_ref_2.tsv , pppa696_allFrag_2.chrom.mzML.gz,  library_selected.tsv, 
 OUTPUT: pppa696_allFrag_2.chrom.txt
 10.	split_chrom_txt.pl pppa696_allFrag.chrom.txt.gz test_ref_2.tsv 10
 INPUT: pppa696_allFrag.chrom.txt.gz  test_ref_2.tsv
-OUTPUT: pppa696_allFrag_part[1~10].chrom.txt.gz 10 files part1~part10
+OUTPUT: pppa696_allFrag_part\[1-10].chrom.txt.gz 10 files part1~part10
 11.	combine_chrom_txt_perl_new.pl pppa1005.txt pppa1_allFrag_part${i}.chrom.txt.gz
 INPUT: pppa1005.txt and  1005 part${i} files
 OUTPUT: a part${i} file 

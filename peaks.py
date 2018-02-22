@@ -83,6 +83,8 @@ def peakdetect(y_axis, x_axis = None, lookahead = 300, delta=0):
     mn, mx = np.Inf, -np.Inf
 
     #Only detect peak if there is 'lookahead' amount of points after it
+    #at 2018.1 cast variable 'lookahead' to type in
+    lookahead = int(lookahead)
     for index, (x, y) in enumerate(zip(x_axis[:-lookahead],
                                         y_axis[:-lookahead])):
         if y > mx:

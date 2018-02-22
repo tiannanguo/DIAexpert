@@ -126,26 +126,41 @@ def get_max_ms2_intensity_in_all_samples(display_data, tg):
             i0 = max(all_i)
             i.append(i0)
 
-    max_i = float(max(i))
+    if len(i) > 0:
 
-    if max_i == 0:
-        max_i = 0.1
+        max_i = float(max(i))
 
-    return max_i
+        if max_i == 0:
+            max_i = 0.1
+
+        return max_i
+    else:
+
+        return 0.1
 
 
 def get_max_ms1_intensity_in_all_samples(display_data, tg):
 
     i = []
+
     for sample in display_data[tg].keys():
-        i.append(display_data[tg][sample]['ms1']['peak_apex_i'])
 
-    max_i = float(max(i))
+        if isinstance(display_data[tg][sample]['ms1']['peak_apex_i'], float) == True:
 
-    if max_i == 0:
-        max_i = 0.1
+            i.append(display_data[tg][sample]['ms1']['peak_apex_i'])
 
-    return max_i
+    if len(i) > 0:
+
+        max_i = float(max(i))
+
+        if max_i == 0:
+            max_i = 0.1
+
+        return max_i
+
+    else:
+
+        return 0.1
 
 
 def write_r_code_close_png_file(this_tg, num_transitions, max_intensity_ms1, max_intensity_ms2, fragment_color_code_mapping):
@@ -238,29 +253,47 @@ def write_sample_ms1(display_data, sample, tg, max_intensity_ms1, if_reference_s
     r_code = '''#MS1 chrom\n'''
     r_code += '''#MS1 id is %s\n''' % tg
 
-    rt_list = ','.join(map(str, display_data[tg][sample]['ms1']['rt_list']))
+    if isinstance(display_data[tg][sample]['rt_left'], float):
 
-    r_code += '''rt = c(%s)\n''' % rt_list
+        if display_data[tg][sample]['ms1']['rt_list'] == "NA":
 
-    i_list = ','.join(map(str, [round(x * (-100) / max_intensity_ms1, 1)
-                                for x in display_data[tg][sample]['ms1']['i_list']]))
+            r_code += "rt = c()\n"
+            r_code += "int = c()\n"
 
-    r_code += '''int = c(%s)\n''' % i_list
+        else:
 
-    r_code += '''plot(rt, int, type = "l", xlim = c (%.1f, %.1f), ylim = c(-110, 110), ''' \
-        '''lwd = %.1f, xlab = "retention time (s)", ylab = "intensity (''' % (
-            display_data[tg][sample]['rt_left'],
-            display_data[tg][sample]['rt_right'],
-            parameters.PLOT_LINE_WIDTH) + '%' + ''')", yaxt = "n", cex.axis = 1.5, frame.plot=%s)\n''' % parameters.frame_of_plot
-    if if_reference_sample == 1:
-        r_code += '''box(col=\"red\")\n'''
-    r_code += '''rm (rt, int)\n'''
+            rt_list = ','.join(map(str, display_data[tg][sample]['ms1']['rt_list']))
+            r_code += '''rt = c(%s)\n''' % rt_list
+            i_list = ','.join(map(str, [round(x * (-100) / max_intensity_ms1, 1)
+                                    for x in display_data[tg][sample]['ms1']['i_list']]))
+            r_code += '''int = c(%s)\n''' % i_list
 
-    # write text
-    # the name of cell line is most case too long for the plot, therefore,
-    # wrap to new line for every 5 letters
-    this_cell_label = sample
-    r_code += '''title("%s", cex.main = 2)\n''' % this_cell_label
+        r_code += '''plot(rt, int, type = "l", xlim = c (%.1f, %.1f), ylim = c(-110, 110), ''' \
+            '''lwd = %.1f, xlab = "retention time (s)", ylab = "intensity (''' % (
+                display_data[tg][sample]['rt_left'],
+                display_data[tg][sample]['rt_right'],
+                parameters.PLOT_LINE_WIDTH) + '%' + ''')", yaxt = "n", cex.axis = 1.5, frame.plot=%s)\n''' % parameters.frame_of_plot
+        if if_reference_sample == 1:
+            r_code += '''box(col=\"red\")\n'''
+        r_code += '''rm (rt, int)\n'''
+
+        # write text
+        # the name of cell line is most case too long for the plot, therefore,
+        # wrap to new line for every 5 letters
+        this_cell_label = sample
+        r_code += '''title("%s", cex.main = 2)\n''' % this_cell_label
+
+    else:
+
+        r_code += "rt = c()\n"
+        r_code += "int = c()\n"
+        r_code += '''plot(rt, int, type = "l", xlim = c (%.1f, %.1f), ylim = c(-110, 110), ''' \
+            '''lwd = %.1f, xlab = "retention time (s)", ylab = "intensity (''' % (
+                0,
+                1,
+                parameters.PLOT_LINE_WIDTH) + '%' + ''')", yaxt = "n", cex.axis = 1.5, frame.plot=%s)\n''' % parameters.frame_of_plot
+        this_cell_label = sample
+        r_code += '''title("%s", cex.main = 2)\n''' % this_cell_label
 
     return r_code
 

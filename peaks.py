@@ -20,11 +20,11 @@ def rt_three_values_to_full_list_string(rt):
 def _datacheck_peakdetect(x_axis, y_axis):
     if x_axis is None:
         x_axis = range(len(y_axis))
-
+    
     if len(y_axis) != len(x_axis):
-        raise (ValueError,
+        raise (ValueError, 
                 'Input vectors y_axis and x_axis must have same length')
-
+    
     #needs to be a numpy array
     y_axis = np.array(y_axis)
     x_axis = np.array(x_axis)
@@ -71,10 +71,6 @@ def peakdetect(y_axis, x_axis = None, lookahead = 300, delta=0):
     # store data length for later use
     length = len(y_axis)
 
-    # modified by Wu Jianfeng
-    # lookahead should be integer, or following error will be thrown:
-    # TypeError: slice indices must be integers or None or have an __index__ method
-    lookahead = int(lookahead)
 
     #perform some checks
     if lookahead < 1:
@@ -87,6 +83,8 @@ def peakdetect(y_axis, x_axis = None, lookahead = 300, delta=0):
     mn, mx = np.Inf, -np.Inf
 
     #Only detect peak if there is 'lookahead' amount of points after it
+    #at 2018.1 cast variable 'lookahead' to type in
+    lookahead = int(lookahead)
     for index, (x, y) in enumerate(zip(x_axis[:-lookahead],
                                         y_axis[:-lookahead])):
         if y > mx:

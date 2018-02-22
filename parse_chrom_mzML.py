@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 __author__ = 'Tiannan Guo, ETH Zurich 2015'
 #this code parses chrom.mzML into chrom.txt file
 
@@ -98,16 +96,13 @@ def read_reference_peak_group(id_mapping):
 
         for row in reader:
 
-            # modified by jianfeng.wu
-            tg_name_key = 'transition_name' # 'fragment_name'
-
-            best_rt[row[tg_name_key]] = float(row['reference_rt'])
+            best_rt[row['fragment_name']] = float(row['reference_rt'])
 
             if bool(id_mapping):
-                best_sample[row[tg_name_key]] = id_mapping[row['reference_sample'].lower()]
+                best_sample[row['fragment_name']] = id_mapping[row['reference_sample'].lower()]
             else:
-                best_sample[row[tg_name_key]] = row['reference_sample']
-            best_score[row[tg_name_key]] = float(row['reference_score'])
+                best_sample[row['fragment_name']] = row['reference_sample']
+            best_score[row['fragment_name']] = float(row['reference_score'])
 
     return best_rt, best_sample, best_score
 
@@ -161,12 +156,8 @@ def main():
     library_data = read_library_file()
 
     #read chrom.mzML.gz file
-    # modified by Wu Jianfeng
-    if in_file2.endswith('.gz'):
-        IN_FILE2 = gzip.open(in_file2, 'rb')
-    else:
-        IN_FILE2 = open(in_file2)
 
+    IN_FILE2 = gzip.open(in_file2, 'rb')
     tree = ET.ElementTree(file=IN_FILE2)
 
     transition_name = ''

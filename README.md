@@ -1,4 +1,5 @@
 Input files:
+test data could be download at http://42.247.30.139/dia-expert/data/wlym_test_data.7z
 
 1. SWATH/DIA mappingfile: eg, wlym113.txt 
 2. SWATH/DIA mzXML file: wlym5.mzXML.gz: the format of the file is sampleN.mzXML.gz，sampleN refers to the second column of the mapping file;

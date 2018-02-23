@@ -22,5 +22,5 @@ Commands:
 10.	split_chrom_txt.pl wlym5_allFrag_2.chrom.txt.gz  5_ref_sample/wlym28_5.tsv 10
 11.	combine_chrom_txt_perl_new.pl wlym113.txt wlym5_allFrag_2_part1.chrom.txt
 12.	generate_tic.py --map_file wlym113.txt --file_dir ./ --out 12_generate_tic/normalization3.tic
-13.	swath_expert.py --chrom_file com_chrom_wlym5_part1.txt --map_file wlym113.txt --tic_file 12_generate_tic/normalization3.tic
+13.	dia_expert.py --chrom_file com_chrom_wlym5_part1.txt --map_file wlym113.txt --tic_file 12_generate_tic/normalization3.tic
 

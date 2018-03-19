@@ -38,4 +38,5 @@ Commands:
 
 e.g.
 swath_batch_run.sh --config_file ./swath_batch_run.config --sample_name wlym --tr ./phl004_canonical_s64_osw_decoys.TraML --tr_irt ./iRT_library.TraML --win_file ./100swaths-variable.txt --splib ./phl004_consensus.sptxt --map_file ./wlym113.txt
+
 note:  swath_batch_run.config is a configure file contains user specified parameters with OpenSwathWorkflow，pyprophet，spectrast2tsv and generate_ref_sample.py

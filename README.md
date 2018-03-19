@@ -1,5 +1,5 @@
 Input files:
-test data could be download at http://42.247.30.139/dia-expert/data/wlym_test_data.7z
+test data could be download at http://www.guomics.org/dia-expert/data/wlym_test_data.7z
 
 1. SWATH/DIA mappingfile: eg, wlym113.txt 
 2. SWATH/DIA mzXML file: wlym5.mzXML.gz: the format of the file is sampleN.mzXML.gz，sampleN refers to the second column of the mapping file;
@@ -25,3 +25,17 @@ Commands:
 12.	generate_tic.py --map_file wlym113.txt --file_dir ./ --out 12_generate_tic/normalization3.tic
 13.	dia_expert.py --chrom_file com_chrom_wlym5_part1.txt --map_file wlym113.txt --tic_file 12_generate_tic/normalization3.tic
 
+#docker version (optional)
+1. docker login  # login the account on http://cloud.docker.com
+2. docker pull xihuswath/xihu_swath  # pull the image
+3. mkdir swath_data
+4. copy all data files into swath_data
+5. cd swath_data
+6. sudo docker run -v `pwd`:/swath/mnt -i -t --rm xihuswath/xihu_swath bash
+   (now you are in the docker container)
+7. edit config file (../program/script/swath_batch_run.config) if needed
+8. swath_batch_run.sh  # specify input files using the arguments
+
+e.g.
+swath_batch_run.sh --config_file ./swath_batch_run.config --sample_name wlym --tr ./phl004_canonical_s64_osw_decoys.TraML --tr_irt ./iRT_library.TraML --win_file ./100swaths-variable.txt --splib ./phl004_consensus.sptxt --map_file ./wlym113.txt
+note:  swath_batch_run.config is a configure file contains user specified parameters with OpenSwathWorkflow，pyprophet，spectrast2tsv and generate_ref_sample.py

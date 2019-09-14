@@ -5,7 +5,7 @@ test data could be download at http://www.guomics.org/dia-expert/data/wlym_test_
 2. SWATH/DIA mzXML file: wlym5.mzXML.gz: the format of the file is sampleN.mzXML.gz，sampleN refers to the second column of the mapping file;
 3. SWATH/DIA window file: 100swaths-variable.txt
 4. Library file 1: 422dda_sp_sv_tr_addDecoy.TraML，for the -tr of the command OpenSwathWorkflow;
-5. Library file 2: iRT_library.TraML，for the -tr_irt of the command OpenSwathWorkflo;
+5. Library file 2: iRT_library.TraML，for the -tr_irt of the command OpenSwathWorkflow;
 6. Library file 3”: cons_irt_sp.sptxt, the spectrast file of the library containing all fragments. 
 
 
